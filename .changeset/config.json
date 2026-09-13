@@ -4,11 +4,7 @@
   "commit": false,
   "fixed": [],
   "linked": [
-    [
-      "@blakfy/accessibility-widget",
-      "@blakfy/a11y-core",
-      "@blakfy/accessibility-widget-next"
-    ]
+    ["@blakfy/accessibility-widget", "@blakfy/a11y-core", "@blakfy/accessibility-widget-next"]
   ],
   "access": "public",
   "baseBranch": "main",

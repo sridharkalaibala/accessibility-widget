@@ -3,6 +3,9 @@ node_modules
 *.md
 pnpm-lock.yaml
 
+# Prebuilt demo bundle; format its source instead
+examples/nextjs/public/widget.js
+
 # Legacy v1 root files — frozen, do not reformat
 AccessibilityWidget.tsx
 AccessibilityPanel.tsx

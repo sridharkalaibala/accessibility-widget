@@ -1,12 +1,6 @@
 // @blakfy/a11y-core — diagnostics.ts
 import { detectOSPreferences } from './apply-styles';
-import type {
-  DiagnosticsSnapshot,
-  Issue,
-  IssueCode,
-  IssueLevel,
-  WidgetOptions,
-} from './types';
+import type { DiagnosticsSnapshot, Issue, IssueCode, IssueLevel, WidgetOptions } from './types';
 
 // process may be injected by Node or bundlers; declare minimally to satisfy TS without @types/node.
 declare const process: { env: Record<string, string | undefined> } | undefined;
@@ -16,8 +10,7 @@ declare const process: { env: Record<string, string | undefined> } | undefined;
 // `typeof` guard which is safe even when the identifier is not declared.
 declare const __VERSION__: string;
 // TODO: drop the literal fallback once the build pipeline is hooked to package.json.
-const VERSION: string =
-  typeof __VERSION__ !== 'undefined' ? __VERSION__ : '2.0.0-alpha.0';
+const VERSION: string = typeof __VERSION__ !== 'undefined' ? __VERSION__ : '2.0.0-alpha.0';
 
 const MAX_ISSUES = 50;
 const PIPE_RATE_LIMIT = 10; // max messages per second

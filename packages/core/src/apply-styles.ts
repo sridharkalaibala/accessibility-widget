@@ -61,9 +61,13 @@ function _buildHostCSS(prefs: Preferences): string {
   }
 
   if (prefs.lineHeight === 'medium') {
-    rules.push(`html p, html li, html dd, html dt, html span, html div { line-height: 1.8 !important; }`);
+    rules.push(
+      `html p, html li, html dd, html dt, html span, html div { line-height: 1.8 !important; }`,
+    );
   } else if (prefs.lineHeight === 'large') {
-    rules.push(`html p, html li, html dd, html dt, html span, html div { line-height: 2.4 !important; }`);
+    rules.push(
+      `html p, html li, html dd, html dt, html span, html div { line-height: 2.4 !important; }`,
+    );
   }
 
   if (prefs.letterSpacing === 'medium') {
@@ -253,7 +257,10 @@ export function subscribeToOSChanges(cb: (osPrefs: OSPreferences) => void): () =
       const list = window.matchMedia(q);
       if (typeof list.addEventListener === 'function') {
         list.addEventListener('change', handler);
-      } else if (typeof (list as MediaQueryList & { addListener?: (l: () => void) => void }).addListener === 'function') {
+      } else if (
+        typeof (list as MediaQueryList & { addListener?: (l: () => void) => void }).addListener ===
+        'function'
+      ) {
         (list as MediaQueryList & { addListener: (l: () => void) => void }).addListener(handler);
       }
       lists.push(list);

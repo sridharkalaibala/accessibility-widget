@@ -58,15 +58,21 @@ function pickLetterSpacing(v: unknown): LetterSpacing {
 }
 
 function pickTextAlign(v: unknown): TextAlign {
-  return v === 'default' || v === 'left' || v === 'center' || v === 'right' ? v : DEFAULT_PREFS.textAlign;
+  return v === 'default' || v === 'left' || v === 'center' || v === 'right'
+    ? v
+    : DEFAULT_PREFS.textAlign;
 }
 
 function pickSaturation(v: unknown): Saturation {
-  return v === 'normal' || v === 'high' || v === 'low' || v === 'none' ? v : DEFAULT_PREFS.saturation;
+  return v === 'normal' || v === 'high' || v === 'low' || v === 'none'
+    ? v
+    : DEFAULT_PREFS.saturation;
 }
 
 function pickCursorSize(v: unknown): CursorSize {
-  return v === 'default' || v === 'large-dark' || v === 'large-light' ? v : DEFAULT_PREFS.cursorSize;
+  return v === 'default' || v === 'large-dark' || v === 'large-light'
+    ? v
+    : DEFAULT_PREFS.cursorSize;
 }
 
 function pickLocale(v: unknown): Locale {
@@ -80,10 +86,7 @@ function pickTheme(v: unknown): Theme {
 }
 
 function pickPosition(v: unknown): Position {
-  return v === 'bottom-left' ||
-    v === 'bottom-right' ||
-    v === 'top-left' ||
-    v === 'top-right'
+  return v === 'bottom-left' || v === 'bottom-right' || v === 'top-left' || v === 'top-right'
     ? v
     : 'bottom-left';
 }
