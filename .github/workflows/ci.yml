@@ -69,6 +69,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Build workspace dependencies
+        run: pnpm --filter "./packages/*" -r build
+
       - name: Typecheck
         run: pnpm typecheck
 
@@ -92,6 +95,9 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Build workspace dependencies
+        run: pnpm --filter "./packages/*" -r build
 
       - name: Run unit tests
         run: pnpm test
@@ -117,6 +123,9 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Build workspace dependencies
+        run: pnpm --filter "./packages/*" -r build
 
       - name: Run contract tests
         run: pnpm test:contract
