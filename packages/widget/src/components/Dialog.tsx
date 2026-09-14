@@ -70,15 +70,31 @@ export function Dialog({
   const onCloseRef = useRef(onClose);
   onCloseRef.current = onClose;
 
-  // Body scroll lock
+  // Body scroll lock. `overflow:hidden` on <html> alone does not stop
+  // touch-driven background scroll on iOS/Android Safari/Chrome (the page
+  // still pans under the finger even though the scrollbar can't move) — the
+  // standard workaround is pinning <body> to its current scroll position
+  // with `position: fixed` while the dialog is open, then restoring it.
   useEffect(() => {
     if (!open) return;
     if (typeof document === 'undefined') return;
     const html = document.documentElement;
-    const previous = html.style.overflow;
+    const body = document.body;
+    const scrollY = window.scrollY;
+    const prevHtmlOverflow = html.style.overflow;
+    const prevBodyPosition = body.style.position;
+    const prevBodyTop = body.style.top;
+    const prevBodyWidth = body.style.width;
     html.style.overflow = 'hidden';
+    body.style.position = 'fixed';
+    body.style.top = `-${scrollY}px`;
+    body.style.width = '100%';
     return () => {
-      html.style.overflow = previous;
+      html.style.overflow = prevHtmlOverflow;
+      body.style.position = prevBodyPosition;
+      body.style.top = prevBodyTop;
+      body.style.width = prevBodyWidth;
+      window.scrollTo(0, scrollY);
     };
   }, [open]);
 

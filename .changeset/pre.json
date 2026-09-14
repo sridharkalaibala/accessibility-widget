@@ -13,6 +13,7 @@
   "changesets": [
     "dark-mode-accent-contrast-fix",
     "info-btn-dark-contrast-fix",
+    "mobile-scroll-lock-fix",
     "v2-alpha-batch-release"
   ]
 }

@@ -289,6 +289,7 @@ button {
   max-inline-size: 100vw;
   block-size: 100vh;
   overflow-y: auto;
+  overscroll-behavior: contain;
   background: var(--__bg);
   color: var(--__text);
   z-index: 10000;
