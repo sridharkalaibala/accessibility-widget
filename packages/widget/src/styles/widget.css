@@ -615,7 +615,13 @@ button {
   height: 24px;
   border-radius: var(--blakfy-a11y-radius-pill);
   background: transparent;
-  color: var(--__bg);
+  /* Was --__bg (the PANEL's own background — #111111 in dark), rendering as
+     near-black text on the ::before dot's dim tint (~26% white over #111111
+     = dark gray) in dark mode, and the mirror-image failure in light mode
+     (white text on a ~28% black-over-white = light gray dot). --__text is
+     the theme's actual foreground color, correct against the dot in both
+     directions. Found 2026-09-14 via computed-style probe on a live panel. */
+  color: var(--__text);
   font-size: 9px;
   font-weight: 700;
   font-style: italic;
